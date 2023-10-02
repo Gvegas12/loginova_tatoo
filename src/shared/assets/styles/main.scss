@@ -1,0 +1,16 @@
+@import url("lib/reset.css");
+@import url("config/font.config.css");
+@import "variables/global.scss";
+
+* {
+  font: var(--font-m);
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.section {
+  height: 100vh;
+}

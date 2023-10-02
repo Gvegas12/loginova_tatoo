@@ -1,0 +1,90 @@
+{
+  "name": "tatoo_front",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint:ts": "eslint \"**/*.{ts,tsx}\" --report-unused-disable-directives --max-warnings 0",
+    "lint:ts:fix": "yarn lint:ts --fix",
+    "test:unit": "jest --verbose --config ./config/jest/jest.config.ts",
+    "test:ui": "npx loki test",
+    "test:ui:ok": "npx loki approve",
+    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:report": "npm run test:ui:report:json && npm run test:ui:report:html",
+    "test:ui:report:json": "node lib/scripts/reg-cli.generate-visual-json-report.cjs",
+    "test:ui:report:html": "reg-cli --from .loki/reg-cli.report.json --report .loki/reg-cli.report.html",
+    "prepare": "husky install",
+    "create:page": "gvegas-cfc create -t ./lib/templates/AsyncTemplate -o ./src/pages",
+    "create:ui": "gvegas-cfc create -t ./lib/templates/UITemplate -o ./src/shared/UI/",
+    "create:widget": "gvegas-cfc create -t ./lib/templates/UITemplate -o ./src/widgets/",
+    "create:feature": "gvegas-cfc create -t ./lib/templates/UITemplate -o ./src/features/",
+    "sb": "storybook dev -p 6006 -c ./config/storybook",
+    "build-sb": "storybook build"
+  },
+  "dependencies": {
+    "axios": "^1.5.1",
+    "clsx": "^2.0.0",
+    "immer": "^10.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.16.0",
+    "swr": "^2.2.4",
+    "zod": "^3.22.2",
+    "zustand": "^4.4.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.4.2",
+    "@storybook/addon-interactions": "^7.4.2",
+    "@storybook/addon-links": "^7.4.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.2",
+    "@storybook/builder-vite": "^7.4.2",
+    "@storybook/react": "^7.4.2",
+    "@storybook/react-vite": "^7.4.2",
+    "@storybook/testing-library": "^0.2.1",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "eslint": "^8.45.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-import-resolver-typescript": "^3.6.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "eslint-plugin-storybook": "^0.6.13",
+    "gvegas-cfc": "^3.0.9",
+    "husky": "^8.0.3",
+    "jsdom": "^22.1.0",
+    "loki": "^0.32.0",
+    "react-docgen-typescript": "^2.2.2",
+    "reg-cli": "^0.17.7",
+    "sass": "^1.68.0",
+    "storybook": "^7.4.5",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vite-plugin-static-copy": "^0.17.0",
+    "vite-plugin-svgr": "^4.1.0",
+    "vitest": "^0.34.6"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.docker",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
+  }
+}

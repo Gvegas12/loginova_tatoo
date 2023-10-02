@@ -1,0 +1,29 @@
+.SectionSuggestions {
+  padding: 100px 0;
+
+  background-color: white;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+
+  border-radius: 15px;
+}
+
+.title {
+  font: 700 var(--font-m-2);
+  margin-bottom: 20px;
+}
+
+.description {
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
