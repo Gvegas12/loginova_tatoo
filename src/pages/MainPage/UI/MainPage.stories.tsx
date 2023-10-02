@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from "@storybook/react";
 
-import { MainPage } from "./MainPage";
+import MainPage from "./MainPage";
 
 export default {
   title: "pages/MainPage",
@@ -13,5 +13,4 @@ const StorybookComponent: StoryFn<typeof MainPage> = (args) => (
 );
 
 export const Primary = StorybookComponent.bind({});
-Primary.args = {
-};
+Primary.args = {};
